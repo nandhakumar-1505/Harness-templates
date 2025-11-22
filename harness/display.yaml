@@ -1,0 +1,31 @@
+pipeline:
+  name: EchoPipeline
+  identifier: EchoPipeline
+  projectIdentifier: MyProject
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: EchoStage
+        identifier: EchoStage
+        description: "Stage to run echo commands"
+        type: CI
+        spec:
+          cloneCodebase: false
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+          execution:
+            steps:
+              - step:
+                  name: EchoStep
+                  identifier: EchoStep
+                  type: Run
+                  spec:
+                    shell: Sh
+                    command: |
+                      echo "Hello from Harness!"
+                      echo "This is a test pipeline."
+                      echo "Running simple echo commands..."
